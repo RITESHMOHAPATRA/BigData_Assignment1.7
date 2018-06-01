@@ -15,11 +15,15 @@ public class Task3 {
 		Configuration conf = new Configuration();
 		Job job = new Job(conf, "Task3");
 		job.setJarByClass(Task2.class);
-
+                
+                //Key is text as it is the state name
 		job.setMapOutputKeyClass(Text.class);
+		//Key is LongWritable as it is the no of units  of Onida
 		job.setMapOutputValueClass(LongWritable.class);
 
+                //Key is text as it is the state name
 		job.setOutputKeyClass(Text.class);
+		//Key is LongWritable as it is the no of units  of Onida
 		job.setOutputValueClass(LongWritable.class);
 		job.setMapperClass(Task3mapper.class);
 		job.setReducerClass(Task3reducer.class);
